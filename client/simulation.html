@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Evolution Simulator - Launch Page </title>
+</head>
+<body>
+
+<h1> Viewing Simulation </h1>
+
+<canvas id="sim-canvas"></canvas>
+
+<script>
+
+var sim_width = 100;
+var sim_height = 100;
+var sim_tile_size = 10;
+
+var canvas = document.getElementById("sim-canvas");
+var ctx = canvas.getContext("2d");
+
+canvas.width = sim_width * sim_tile_size;
+canvas.height = sim_height * sim_tile_size;
+
+ctx.beginPath();
+for (x = 0; x <= sim_width + 1; x++) {
+  ctx.moveTo(x * sim_tile_size, 0);
+  ctx.lineTo(x * sim_tile_size, sim_tile_size * sim_height);
+}
+for (y = 0; y <= sim_height + 1; y++) {
+  ctx.moveTo(0, y * sim_tile_size);
+  ctx.lineTo(sim_tile_size * sim_width, y * sim_tile_size);
+}
+ctx.stroke();
+
+</script>
+
+</body>
+</html>
